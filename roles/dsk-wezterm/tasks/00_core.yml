@@ -1,0 +1,23 @@
+---
+- name: 📁 create wezterm config directory
+  ansible.builtin.file:
+    path: "{{ wezterm_config_directory }}"
+    state: directory
+    owner: "{{ wezterm_user }}"
+    group: "{{ wezterm_user }}"
+    mode: "0755"
+  become: true
+
+- name: 📝 deploy wezterm config and help
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ wezterm_config_directory }}/{{ item }}"
+    owner: "{{ wezterm_user }}"
+    group: "{{ wezterm_user }}"
+    mode: "0644"
+  become: true
+  loop:
+    - wezterm.lua
+    - HELP.md
+
+- include_tasks: utils/once/flag.yml

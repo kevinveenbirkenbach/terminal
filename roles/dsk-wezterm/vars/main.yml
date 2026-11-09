@@ -1,0 +1,4 @@
+---
+application_id: dsk-wezterm
+wezterm_user: "{{ lookup('users', WORKSTATION_USER).username }}"
+wezterm_config_directory: "/home/{{ wezterm_user }}/.config/wezterm"

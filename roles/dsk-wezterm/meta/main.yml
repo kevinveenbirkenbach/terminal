@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: Kevin Veen-Birkenbach
+  description: WezTerm terminal emulator with a personal configuration for Pacman-based workstations
+  license: All rights reserved by Kevin Veen-Birkenbach
+  company: |
+    Kevin Veen-Birkenbach
+    https://www.veen.world
+  galaxy_tags:
+    - wezterm
+    - terminal
+    - cli
+  issue_tracker_url: https://github.com/kevinveenbirkenbach/terminal/issues
+  min_ansible_version: "2.9"
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+dependencies: []
