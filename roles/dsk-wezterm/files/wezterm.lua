@@ -1,8 +1,8 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- GNOME gives Wayland clients no frame, so every value except NONE makes WezTerm draw its own title bar above the tab bar and push the window below the panel by that height
-config.window_decorations = "NONE"
+-- GNOME draws no title bar for Wayland clients, so WezTerm paints an extra bar of its own above the tabs that also pushes the window below the panel; through XWayland GNOME draws its normal title bar and handles move, maximize and tiling
+config.enable_wayland = false
 config.window_background_opacity = 0.85
 config.color_scheme = 'Tokyo Night'
 config.use_fancy_tab_bar = true

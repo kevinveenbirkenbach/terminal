@@ -6,7 +6,7 @@ Custom Infinito.Nexus role (core 17.0.0 or later): installs [WezTerm](https://gi
 
 [`files/HELP.md`](files/HELP.md) lists every key binding and window gesture; `Ctrl+Shift+F1` opens it in a new tab.
 
-WezTerm always starts `/usr/bin/zsh` as a non-login shell, like GNOME Terminal does, whatever login shell `/etc/passwd` holds. Windows have no title bar: GNOME gives Wayland clients no frame, so any other `window_decorations` value makes WezTerm draw a second bar above the tabs that also pushes the window below the panel.
+WezTerm always starts `/usr/bin/zsh` as a non-login shell, like GNOME Terminal does, whatever login shell `/etc/passwd` holds. WezTerm runs through XWayland, so GNOME draws its normal title bar. GNOME gives Wayland clients no frame, so under Wayland WezTerm paints a second bar of its own above the tabs that also pushes the window below the panel.
 
 Folder bookmarks live in `~/.config/wezterm/bookmarks`. The role does not manage that file, so deploys keep it.
 
