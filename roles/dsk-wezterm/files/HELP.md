@@ -48,4 +48,12 @@ Bookmarks live in ~/.config/wezterm/bookmarks, one path per line.
 | Alt+F10                   | Maximize / restore                       |
 | Alt+F7 / Alt+F8           | Move / resize with the arrow keys        |
 | Alt+Enter                 | Full screen on / off                     |
-| Alt+Shift+Up / Down       | Background less / more transparent       |
+
+## Transparency
+
+| Keys                      | Action                                   |
+|---------------------------|------------------------------------------|
+| Alt+Shift+Up              | Background less transparent              |
+| Alt+Shift+Down            | Background more transparent              |
+
+Steps of 5 %, from 10 % to 100 % opacity, for the current window until it closes.

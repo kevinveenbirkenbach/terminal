@@ -8,7 +8,13 @@ Custom Infinito.Nexus role (core 17.0.0 or later): installs [WezTerm](https://gi
 
 WezTerm always starts `/usr/bin/zsh` as a non-login shell, like GNOME Terminal does, whatever login shell `/etc/passwd` holds. WezTerm runs through XWayland, so GNOME draws its normal title bar. GNOME gives Wayland clients no frame, so under Wayland WezTerm paints a second bar of its own above the tabs that also pushes the window below the panel.
 
-Folder bookmarks live in `~/.config/wezterm/bookmarks`. The role does not manage that file, so deploys keep it.
+## Bookmarks
+
+`Ctrl+Shift+B` appends the folder of the current pane to `~/.config/wezterm/bookmarks` as one line and confirms it with a notification; a folder already in the file is not added twice. WezTerm knows that folder only when the shell reports it through OSC 7, which Manjaro's zsh does; without that report the key does nothing.
+
+`Ctrl+Shift+O` lists the file in a fuzzy picker and opens a new tab in the chosen folder.
+
+The file is plain text, one path per line: delete or reorder lines in any editor to remove or sort bookmarks. It stays on the host it was written on. The role neither creates nor manages it, so deploys keep it.
 
 ## Activate
 
