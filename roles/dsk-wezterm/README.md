@@ -10,7 +10,7 @@ WezTerm always starts `/usr/bin/zsh` as a non-login shell, like GNOME Terminal d
 
 ## Bookmarks
 
-`Ctrl+Shift+B` appends the folder of the current pane to `~/.config/wezterm/bookmarks` as one line and confirms it with a notification; a folder already in the file is not added twice. WezTerm knows that folder only when the shell reports it through OSC 7, which Manjaro's zsh does; without that report the key does nothing.
+`Ctrl+Shift+B` appends the folder of the current pane to `~/.config/wezterm/bookmarks` as one line and confirms it for three seconds at the right end of the tab bar; a folder already in the file is not added twice. WezTerm knows that folder only when the shell reports it through OSC 7, which Manjaro's zsh does; without that report the key does nothing.
 
 `Ctrl+Shift+O` lists the file in a fuzzy picker and opens a new tab in the chosen folder.
 

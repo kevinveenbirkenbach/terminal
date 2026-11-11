@@ -8,6 +8,11 @@ config.color_scheme = 'Tokyo Night'
 config.use_fancy_tab_bar = true
 -- Independent of the login shell, which user-workstation resets to /bin/bash on every deploy; no -l, like GNOME Terminal
 config.default_prog = { '/usr/bin/zsh' }
+-- toast_notification showed no GNOME banner on this desktop, so confirmations go to the tab bar
+local function notify(window, message)
+  window:set_right_status(message)
+  wezterm.time.call_after(3, function() window:set_right_status('') end)
+end
 
 local bookmarks_file = wezterm.config_dir .. '/bookmarks'
 
@@ -33,14 +38,14 @@ wezterm.on('bookmark-add', function(window, pane)
   local path = cwd.file_path
   for _, bookmark in ipairs(read_bookmarks()) do
     if bookmark.label == path then
-      window:toast_notification('WezTerm', 'Bookmark already exists: ' .. path, nil, 3000)
+      notify(window, 'Bookmark already exists: ' .. path)
       return
     end
   end
   local file = io.open(bookmarks_file, 'a')
   file:write(path .. '\n')
   file:close()
-  window:toast_notification('WezTerm', 'Bookmark saved: ' .. path, nil, 3000)
+  notify(window, 'Bookmark saved: ' .. path)
 end)
 
 wezterm.on('bookmark-open', function(window, pane)
