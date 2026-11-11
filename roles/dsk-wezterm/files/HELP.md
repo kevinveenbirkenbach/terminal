@@ -17,6 +17,7 @@ Press q to close this help.
 | Ctrl+PageUp / PageDown    | Previous / next tab                      |
 | Alt+Shift+Left / Right    | Move the current tab left / right        |
 | Ctrl+Shift+R              | Rename the current tab                   |
+| Ctrl+Shift+W              | Close and end the current tab            |
 
 ## Panes
 
@@ -35,6 +36,15 @@ Press q to close this help.
 | Ctrl+Shift+O              | Pick a bookmark and open it in a new tab |
 
 Bookmarks live in ~/.config/wezterm/bookmarks, one path per line.
+
+## Session
+
+| Keys                      | Action                                   |
+|---------------------------|------------------------------------------|
+| Ctrl+Shift+S              | Save the open tabs for the next reboot   |
+
+Closing the window keeps every tab running in the background; the next start
+shows them again. After a reboot WezTerm reopens the tabs saved last.
 
 ## Window
 

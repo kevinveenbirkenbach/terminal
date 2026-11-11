@@ -8,6 +8,12 @@ Custom Infinito.Nexus role (core 17.0.0 or later): installs [WezTerm](https://gi
 
 WezTerm always starts `/usr/bin/zsh` as a non-login shell, like GNOME Terminal does, whatever login shell `/etc/passwd` holds. WezTerm runs through XWayland, so GNOME draws its normal title bar. GNOME gives Wayland clients no frame, so under Wayland WezTerm paints a second bar of its own above the tabs that also pushes the window below the panel.
 
+## Background Tabs and Reboot
+
+Tabs run in WezTerm's own mux server (the `unix` domain), which keeps running in the background. Closing a window detaches its tabs instead of ending them: running programs keep going, and the next WezTerm start, from the launcher or a shell, shows them again. All windows share that one domain, so closing one window detaches every window; the next start brings all of them back. `Ctrl+Shift+W` or `exit` ends a tab for good.
+
+A reboot ends the server and its tabs. `Ctrl+Shift+S` saves every open tab, its folder and name but not the program running in it, to `~/.config/wezterm/session`. When the server starts fresh, it reopens exactly those tabs instead of a single new one. Delete the file to start with one empty tab again. The role does not manage that file, so deploys keep it.
+
 ## Bookmarks
 
 `Ctrl+Shift+B` appends the folder of the current pane to `~/.config/wezterm/bookmarks` as one line and confirms it for three seconds at the right end of the tab bar; a folder already in the file is not added twice. WezTerm knows that folder only when the shell reports it through OSC 7, which Manjaro's zsh does; without that report the key does nothing.
